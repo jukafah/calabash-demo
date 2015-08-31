@@ -1,15 +1,15 @@
 ## calabash-demo
 
-Resources
+**Resources**
 
-Android
+**Android**
 - RubyDoc: http://www.rubydoc.info/gems/calabash-android
 - Google Group: https://groups.google.com/forum/#!forum/calabash-android
 
-iOS
+**iOS**
 - RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
 - Google Group: https://groups.google.com/forum/#!forum/calabash-ios
-
+ 
 
 #### Mac Setup:
 
