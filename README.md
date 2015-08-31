@@ -3,9 +3,11 @@ calabash
 
 Android
 - RubyDoc: http://www.rubydoc.info/gems/calabash-android
+- Google Group: https://groups.google.com/forum/#!forum/calabash-android
 
 iOS
 - RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
+- Google Group: https://groups.google.com/forum/#!forum/calabash-ios
 
 
 Google Group: https://groups.google.com/forum/#!forum/calabash-android
