@@ -1,11 +1,11 @@
 # calabash-demo
 calabash
 
-Android 
+Android
 RubyDoc: http://www.rubydoc.info/gems/calabash-android
 
-iOS 
-RubyDoce: http://www.rubydoc.info/gems/calabash-cucumber
+iOS
+RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
 
 
 Google Group: https://groups.google.com/forum/#!forum/calabash-android
