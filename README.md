@@ -1,4 +1,4 @@
-# calabash-demo
+## calabash-demo
 calabash
 
 Android
@@ -10,7 +10,7 @@ iOS
 - Google Group: https://groups.google.com/forum/#!forum/calabash-ios
 
 
-### Mac Setup:
+#### Mac Setup:
 
 Setup steps:
 Open a terminal window and type open ~/.bash_profile and set the following environment variables;
