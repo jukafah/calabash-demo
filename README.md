@@ -10,16 +10,7 @@ iOS
 - Google Group: https://groups.google.com/forum/#!forum/calabash-ios
 
 
-Google Group: https://groups.google.com/forum/#!forum/calabash-android
-Calabash-cucumber (ios)
-APIs from Github: https://github.com/calabash/calabash-ios/wiki/Calabash-iOS-Ruby-API
-APIs from Rubydoc: http://www.rubydoc.info/gems/calabash-cucumber/Calabash
-APIs from Rubydoc appear to be much more extensive.
-Google Group: https://groups.google.com/forum/#!forum/calabash-ios
-Capybara (web)
-APIs from Rubydoc: http://www.rubydoc.info/github/jnicklas/capybara/Capybara
-
-Mac Setup:
+### Mac Setup:
 
 Setup steps:
 Open a terminal window and type open ~/.bash_profile and set the following environment variables;
