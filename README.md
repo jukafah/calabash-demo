@@ -1,5 +1,6 @@
 ## calabash-demo
-calabash
+
+Resources
 
 Android
 - RubyDoc: http://www.rubydoc.info/gems/calabash-android
