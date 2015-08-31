@@ -1,10 +1,13 @@
 # calabash-demo
-calabash cross-platform example
+calabash
 
-Calabash-android
-APIs from Github: https://github.com/calabash/calabash-android/blob/master/documentation/ruby_api.md
-APIs from Rubydoc: http://www.rubydoc.info/gems/calabash-android/Calabash
-APIs from Rubydoc appear to be much more extensive.
+Android
+RubyDoc: http://www.rubydoc.info/gems/calabash-android
+
+iOS
+RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
+
+
 Google Group: https://groups.google.com/forum/#!forum/calabash-android
 Calabash-cucumber (ios)
 APIs from Github: https://github.com/calabash/calabash-ios/wiki/Calabash-iOS-Ruby-API
