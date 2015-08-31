@@ -2,10 +2,10 @@
 calabash
 
 Android
-RubyDoc: http://www.rubydoc.info/gems/calabash-android
+- RubyDoc: http://www.rubydoc.info/gems/calabash-android
 
 iOS
-RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
+- RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
 
 
 Google Group: https://groups.google.com/forum/#!forum/calabash-android
