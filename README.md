@@ -9,82 +9,126 @@
 **iOS**
 - RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
 - Google Group: https://groups.google.com/forum/#!forum/calabash-ios
- 
 
-#### Mac Setup:
+#### Setup - Mac
 
-Setup steps:
-Open a terminal window and type open ~/.bash_profile and set the following environment variables;
-export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140321/sdk
-This is set to where Self Service places the SDK. It can be moved anywhere as long as the set path is correct.
+Open a terminal and execute:
+
+```
+$ open ~/.bash_profile
+```
+
+set the following environment variables: 
+```
+export ANDROID_HOME=/path/to/android/sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-PATH must be as shown.
 export JAVA_HOME=$(/usr/libexec/java_home)
-This is set as per Apple development recommendation.
+```
+
+save changes, close profile, and then close and reopen terminal. Execute each of the following:  
+*note - ensure the printed path is correct to your environment.*
+
+```
+$ echo $ANDROID_HOME
+/path/to/android/sdk
+$ echo $JAVA_HOME
+/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home 
+$ echo $PATH
+/path/to/android/sdk/tools:/path/to/android/sdk/platform-tools
+$ adb version  
+Android Debug Bridge version 1.0.31
+$ java -version
+java version "1.7.0_75"
+Java(TM) SE Runtime Environment (build 1.7.0_75-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.75-b04, mixed mode)
+```
+*Note: You will without a doubt have more than the above with $PATH*  
  
-2. Save, close terminal, and  open a new terminal window. Check each of the following to ensure the profile has been configured correctly.
-echo $ANDROID_HOME
-/Applications/adt-bundle-mac-x86_64-20140321/sdk
-echo $JAVA_HOME
-/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home
-echo $PATH
-/Users/a568103/.rvm/gems/ruby-2.1.5/bin:/Users/a568103/.rvm/gems/ruby-2.1.5@global/bin:/Users/a568103/.rvm/rubies/ruby-2.1.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools:/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools:/Users/a568103/.rvm/bin
-NOTE: In the above, ensure the expected $PATH is correct. The others will be added further in setup.
-$ adb
-Command line options for the android debug bridge will display.
-$ java
-Command line option for java will display.
+### Install Homebrew
+
+Still in Terminal, execute the following commands:
+```
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+After installation:
+
+```
+$ brew doctor
+Your system is ready to brew
+```
+**Note: You may get soft warnings on installation. The warning should be descriptive enough on whether or not action needs to be taken.**
+
+### Install Git
+
+Still in terminal, execute:
+
+```
+$ brew install git
+```
+
+After installation, execute:
+
+```
+$ git --version
+git version 2.3.3
+```
  
-3. Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-After installation, execute $ brew doctor
-On a successful installation, the message "Your system is ready to brew" is displayed.
-Each time a brew function is to be performed, execute $ brew update
-This ensures you are always on the most up to date brew.
- 
-4. Install Git
-Execute $ brew install git
-After installation, execute $ git --version
-On a successful installation, you will see "git version 2.3.3" or later
- 
-5. Install RVM
+### Install RVM
+
+```
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
-RVM installation may take a few minutes. Once done, quit, relaunch Terminal, and then execute $ type rvm | head -1
-On a successful installation, the message "rvm is a function" is displayed.
-Execute $ rvm -v
-On a successful installation, you will see "rvm 1.26.10" or higher displayed.
-Execute $ ruby -v
-On a successful installation, you will see "ruby 2.2.0" or higher displayed.
-Execute $ brew doctor
+```
+*RVM installation may take a few minutes.* 
+
+Once done, quit, relaunch Terminal, and then execute:
+
+```
+$ rvm -v
+rvm 1.26.10 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
+$ brew doctor
 If no issues have occurred during setup, the message "Your system is ready to brew" is displayed. 
+```
+*note: your version of ruby will change with the next few steps.
  
-6. Install Ruby 2.1.5
-Execute $ rvm list rubies
-This displayed all RVM installed versions of ruby.
-Execute $ rvm install 2.1.5
-This installs Ruby 2.1.5 to be useable/interchangeable via RVM.
-After installation, execute $ rvm use 2.1.5 --default
-This configures rvm to use Ruby 2.1.5 as the default in all instances.
-Verify by executing $ ruby -v
-On a successful installation, you will see "ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]"
-If the version of Ruby does not match exact as above, stop and troubleshoot.
+### Install Ruby 2.1.5
 
-7. Install Calabash for Android
-Execute $ gem install calabash-android
-This may take a few minutes.
- 
-8. Get debug.keystore
-This can be found here - https://git.target.com/cartwheel/target-socsav-android
-Place the debug.keytore on your local ~/.android
-If the file already exist, overwrite it.
- 
- 
-10. Get a debug apk
-Debug apks can be found here - Android Debug Builds
- 
+```
+$ rvm install 2.1.5
+```
+*note: installation may take some time*
 
-Android setup complete!
+After installation, execute command to use Ruby 2.1.5 as default in all Terminal instances:
 
+```
+$ rvm use 2.1.5 --default
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
+```
+
+### Install Calabash-Android
+
+```
+$ gem install calabash-android
+```
+*note: this may take a few minutes*
+
+Check version:
+
+```
+$ calabash-android version
+0.5.8
+```
+
+## Android setup complete.  
+
+@todo:
+For the next steps, we will need an open source app
+APP: <link here>
+
+Need the app's debug.keytore to sign as part of installing the test server
 
 IOS SETUP
 
