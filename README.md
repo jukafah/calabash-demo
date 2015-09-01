@@ -10,7 +10,7 @@
 - RubyDoc: http://www.rubydoc.info/gems/calabash-cucumber
 - Google Group: https://groups.google.com/forum/#!forum/calabash-ios
 
-#### Setup - Mac
+### Android Setup - Mac
 
 Open a terminal and execute:
 
@@ -19,6 +19,7 @@ $ open ~/.bash_profile
 ```
 
 set the following environment variables: 
+
 ```
 export ANDROID_HOME=/path/to/android/sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
@@ -26,7 +27,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 ```
 
 save changes, close profile, and then close and reopen terminal. Execute each of the following:  
-*note - ensure the printed path is correct to your environment.*
+*Note: Ensure the printed path is correct to your environment.*
 
 ```
 $ echo $ANDROID_HOME
@@ -44,7 +45,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.75-b04, mixed mode)
 ```
 *Note: You will without a doubt have more than the above with $PATH*  
  
-### Install Homebrew
+#### Install Homebrew
 
 Still in Terminal, execute the following commands:
 ```
@@ -57,9 +58,9 @@ After installation:
 $ brew doctor
 Your system is ready to brew
 ```
-**Note: You may get soft warnings on installation. The warning should be descriptive enough on whether or not action needs to be taken.**
+*Note: You may get soft warnings on installation. The warning should be descriptive enough on whether or not action needs to be taken.*
 
-### Install Git
+#### Install Git
 
 Still in terminal, execute:
 
@@ -74,14 +75,16 @@ $ git --version
 git version 2.3.3
 ```
  
-### Install RVM
+#### Install RVM
+
+We will first install RVM (Ruby Version Manager). This lets you seamlessly switch ruby versions that are in use. Still in terminal, execute:
 
 ```
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
 ```
 *RVM installation may take a few minutes.* 
 
-Once done, quit, relaunch Terminal, and then execute:
+Once done, quit, relaunch Terminal, and then continue with executing:
 
 ```
 $ rvm -v
@@ -91,16 +94,18 @@ ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
 $ brew doctor
 If no issues have occurred during setup, the message "Your system is ready to brew" is displayed. 
 ```
-*note: your version of ruby will change with the next few steps.
+*Note: Some of your versions may be different. This is fine and will change in a later step.*
  
-### Install Ruby 2.1.5
+#### Install Ruby 2.1.5
+
+Now we install ruby 2.1.5 via RVM by executing:
 
 ```
 $ rvm install 2.1.5
 ```
 *note: installation may take some time*
 
-After installation, execute command to use Ruby 2.1.5 as default in all Terminal instances:
+After installation, below command sets ruby 2.1.5 as the default version to use in Terminal:
 
 ```
 $ rvm use 2.1.5 --default
@@ -108,7 +113,7 @@ $ ruby -v
 ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
 ```
 
-### Install Calabash-Android
+#### Install Calabash-Android
 
 ```
 $ gem install calabash-android
@@ -122,7 +127,7 @@ $ calabash-android version
 0.5.8
 ```
 
-## Android setup complete.  
+### Android setup complete.  
 
 @todo:
 For the next steps, we will need an open source app
@@ -130,93 +135,167 @@ APP: <link here>
 
 Need the app's debug.keytore to sign as part of installing the test server
 
-IOS SETUP
+### iOS Setup - Mac
 
-Environment Setup:
-1. Install Xcode (latest version at time of writing - Xcode 6.3)
-2. Install the Xcode command line dev tools
-execute $ xcode-select --install
+#### Install Xcode
 
-3. Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-After installation, execute $ brew doctor
-On a successful installation, the message "Your system is ready to brew" is displayed.
-Each time a brew function is to be performed, execute $ brew update
-This ensures you are always on the most up to date brew.
+During installation, be sure to install command line tools. If not prompted, execute the below command in terminal:
+
+```
+$ xcode-select --install
+```
+
+*Note: Some of the below can be skipped if android setup has already been completed.*
+
+#### Install Homebrew
+
+Still in Terminal, execute the following commands:
+```
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+After installation:
+
+```
+$ brew doctor
+Your system is ready to brew
+```
+*Note: You may get soft warnings on installation. The warning should be descriptive enough on whether or not action needs to be taken.*
+
+#### Install Git
+
+Still in terminal, execute:
+
+```
+$ brew install git
+```
+
+After installation, execute:
+
+```
+$ git --version
+git version 2.3.3
+```
  
-4. Install Git
-Execute $ brew install git
-After installation, execute $ git --version
-On a successful installation, you will see "git version 2.3.3" or later
- 
-5. Install RVM
+#### Install RVM
+
+We will first install RVM (Ruby Version Manager). This lets you seamlessly switch ruby versions that are in use. Still in terminal, execute:
+
+```
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
-RVM installation may take a few minutes. Once done, quit, relaunch Terminal, and then execute $ type rvm | head -1
-On a successful installation, the message "rvm is a function" is displayed.
-Execute $ rvm -v
-On a successful installation, you will see "rvm 1.26.10" or higher displayed.
-Execute $ ruby -v
-On a successful installation, you will see "ruby 2.2.0" or higher displayed.
-Execute $ brew doctor
-If no issues have occurred during setup, the message "Your system is ready to brew" is displayed. 
- 
-6. Install Ruby 2.1.5
-Execute $ rvm list rubies
-This displayed all RVM installed versions of ruby.
-Execute $ rvm install 2.1.5
-This installs Ruby 2.1.5 to be useable/interchangeable via RVM.
-After installation, execute $ rvm use 2.1.5 --default
-This configures rvm to use Ruby 2.1.5 as the default in all instances.
-Verify by executing $ ruby -v
-On a successful installation, you will see "ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]"
-If the version of Ruby does not match exact as above, stop and troubleshoot.
-7. Install the calabash-cucumber by running $ gem install calabash-cucumber
+```
+*RVM installation may take a few minutes.* 
 
-Installing .app through command line:
-install Node.js and ios-deploy
-$ brew install node
-$ npm install -g ios-deploy
-Install .app on device ex: 
-ios-deploy -b path/to/.app
-NOTE: This is built into the automation project, and as such will install with your generic run commands.
+Once done, quit, relaunch Terminal, and then continue with executing:
+
+```
+$ rvm -v
+rvm 1.26.10 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
+$ brew doctor
+If no issues have occurred during setup, the message "Your system is ready to brew" is displayed. 
+```
+*Note: Some of your versions may be different. This is fine and will change in a later step.*
  
-iOS setup:
-1. Download iOS source from Git
-2. Open workspace in Xcode
-3. Schemes > Manage Schemes
-4. Add a new Scheme - 'Cartwheel-cal' - check the 'Shared' checkbox
-5. Select the Cartwheel-cal scheme
-6. Scheme menu > Edit Schemes...
-7. Ensure that the Build Configuration drop-down menu is set to 'Debug' - click Close.
-8. Select 'Cartwheel' under Targets > choose Build Settings
-9. Search for 'other linker'
-10. Expand 'Other Linker Flags' - double click to edit the setting for the Debug linker flag
-11. Add three new lines (in the following order, exactly as shown):
--all_load
--framework
-calabash
-12. Launch Terminal
-$ cd [path/to/iOS/project/directory/]
-13. Run the following:
+#### Install Ruby 2.1.5
+
+Now we install ruby 2.1.5 via RVM by executing:
+
+```
+$ rvm install 2.1.5
+```
+*note: installation may take some time*
+
+After installation, below command sets ruby 2.1.5 as the default version to use in Terminal:
+
+```
+$ rvm use 2.1.5 --default
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
+```
+
+#### Install Calabash-Cucumber (calabash-ios)
+
+```
+$ gem install calabash-cucumber
+```
+*note: this may take a few minutes*
+
+@todo: add idevice setup for command line app installations and logging
+
+### Integrating Calabash
+
+To use calabash for iOS devices, the calabash.framework needs to be integrated into the actual app. Your iOS dev will probably have a preference for integration, but the below generally works for *most* setups.
+
+1. Get the iOS source project
+2. Navigate to source directory
+3. In Terminal, execute:
+
+```
 $ calabash-ios download
-14. From the Xcode menubar, choose Product > Clean
-15. Ensure the Cartwheel-cal scheme is still selected and choose Product > Run.
-16. Allow network permissions when prompted (Prompt is caused by calabash test server trying to make an http connection to the app).
-17. Accept notification prompt by clicking OK
-18. Quit the iOS Simulator
-19. In terminal, run
+```
+*This command downloads the actual .framework that integrates into the app.*
+
+4. Open the app workspace,
+5. Navigate to Schemes => Manage Schemes,
+6. Add the scheme: '<app-name>-cal' and check the 'shared' box,
+7. Ensure build configuration is set to 'debug' and close,
+   *Do NOT link your calabash build to a release configuration, as it can cause app store rejections and is all around bad dev practice*
+8. Select '<app-name>' under Targets,
+9. Click 'Build Settings'
+10. Search for 'Other Linker Flags'
+11. Expand 'Other Linker Flags', and under your 'Debug' configuration (or whichever you have created for calabash), add the following:
+
+```
+-force_load
+calabash.framework/Versions/Current/calabash
+```
+
+12. Select your calabash scheme/config, and from the Xcode Menu, Product => Clean
+13. Now, Product => Run,
+14. A prompt should appear for the calabash server connecting to the app. Accept the prompt,
+15. Quit the iOS Simulator
+16. In terminal, execute:
+
+```
 $ calabash-ios console
 $ start_test_server_in_background inject_dylib:true
-# inject_dylib:true will allow for https connection to Facebook login
-20. Allow network permissions when prompted.
+# inject_dylib:true will allow for https connection in the simulator
+```
 
-To change the simulator device used by the calabash-ios console:
-1. Get a list of known devices on your system:
-execute $ instruments -s devices
-2. Execute
-$ DEVICE_TARGET='iPad Air (8.3 Simulator)' calabash-ios console
+To change simulators:  
+
+Get a list of known devices (there will be many),
+
+```
+$ instruments -s devices
+Known Devices:
+6c40089cc7e2 [B2F0540F-49BA-5466-8DC0-283ADDC5E4A1]
+Resizable iPad (8.4 Simulator) [6BB67E4E-68C4-4262-BA20-9345D2AAAB25]
+Resizable iPad (8.4 Simulator) [8105A7F8-FACE-4D6F-BDCC-159CB42DB45E]
+```
+
+Simulators:
+
+```
+$ DEVICE_TARGET=<udid/name> calabash-ios console
 $ start_test_server_in_background inject_dylib:true
-To run calabash-ios console on a physical device:
-$ BUNDLE_ID=com.target.Cartwheel DEVICE_TARGET=[UUID] DEVICE_ENDPOINT=http://[device ip address]:37265 calabash-ios console
-$ start_test_server_in_background
+```
 
+Devices:
+
+```
+$ BUNDLE_ID=<app.package.name> DEVICE_TARGET=<udid> or <device> DEVICE_ENDPOINT=http://<device.ip>:37265 calabash-ios console
+@todo: <message here>
+```
+
+Start test server (embedded calabash.framework):
+
+```
+$ start_test_server_in_background
+```
+
+### Calabash Tutorial
+
+@todo
