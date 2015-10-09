@@ -130,10 +130,8 @@ $ calabash-android version
 ### Android setup complete.  
 
 @todo:
-For the next steps, we will need an open source app
-APP: <link here>
-
-Need the app's debug.keytore to sign as part of installing the test server
+calabash-android setup command and then creating test server
+add generic debug.keystore creation command
 
 ### iOS Setup - Mac
 
