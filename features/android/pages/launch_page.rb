@@ -28,9 +28,6 @@ class LaunchPage < Calabash::ABase
     page(PostsPage).await
   end
 
-
-
-
   def username_field
     "* id:'nux_username'"
   end
